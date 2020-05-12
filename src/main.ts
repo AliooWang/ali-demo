@@ -16,8 +16,9 @@ import {
   Row,
   Col,
   MessageBox,
+  Popover
 } from 'element-ui'
-import './tinymce'
+// import './tinymce'
 
 Vue.config.productionTip = false
 Vue.use(Loading.directive as any)
@@ -31,6 +32,7 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Popover)
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$alert = MessageBox.alert
 Vue.prototype.$confirm = MessageBox.confirm

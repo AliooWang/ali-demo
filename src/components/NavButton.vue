@@ -12,6 +12,12 @@
       >
         Editor
       </router-link>
+      <router-link
+        tag="button"
+        to="/sku"
+      >
+        Sku
+      </router-link>
     </div>
 </template>
       

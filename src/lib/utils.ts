@@ -1,3 +1,9 @@
+/**
+ * 超出隐藏，显示...
+ * @param str 
+ * @param length 
+ * @param showDot 
+ */
 export const ellipsis = (str: string, length: number, showDot = true) => {
   if (str.length <= length) {
     return str
@@ -27,7 +33,6 @@ export const loadScript = (src: string, scriptId: string, onloadFnName?: string)
     script.charset = 'utf-8'
     script.id = scriptId
     if (onloadFnName) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any)[onloadFnName] = resolve
     } else {
       script.onload = resolve
@@ -37,6 +42,35 @@ export const loadScript = (src: string, scriptId: string, onloadFnName?: string)
     document.body.appendChild(script)
   })
 }
+
+/**
+ * @returns {string}
+ */
+export function createUniqueString(): string {
+  const timestamp = +new Date() + ''
+  const randomNum = parseInt(((1 + Math.random()) * 65536).toString()) + ''
+  return (+(randomNum + timestamp)).toString(32)
+}
+
+/** 
+ * @param {Array} arr
+ * @returns {Array}
+ */
+export function uniqueArr(arr: any): Array<any> {
+  return Array.from(new Set(arr))
+}
+
+/**
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @returns {Array}
+ */
+export function diffArary(arr1: Array<any>, arr2: Array<any>): Array<any> {
+  arr1 = uniqueArr(arr1)
+  arr2 = uniqueArr(arr2)
+  return arr1.concat(arr2).filter(arg => !(arr1.includes(arg)  && arr2.includes(arg)))
+}
+
 
 export const dropUrlOrigin = (str: string) => {
   if (!str) {
